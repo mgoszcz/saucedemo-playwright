@@ -30,4 +30,14 @@ test.describe.parallel('Login Page', () => {
         await expect(loginPage.errorMessage).toBeVisible();
         await expect(loginPage.errorMessage).toHaveText('Epic sadface: Password is required')
     })
+
+    test.skip('test', async ({ loginPage, inventoryPage }) => {
+        await loginPage.loginUser('standard_user', 'secret_sauce');
+        await expect(inventoryPage.inventoryContainer).toBeVisible()
+        const items = await inventoryPage.inventoryList.getItems();
+        const singleItem = await inventoryPage.inventoryList.getItemByName('Sauce Labs Backpack');
+        await items[0].addToCartButton.click();
+        expect (await items[0].label.textContent()).toBe('Sauce Labs Backpack')
+        expect (await singleItem.label.textContent()).toBe('Sauce Labs Backpack')
+    })
 })
