@@ -1,6 +1,6 @@
 import {test} from "@playwright/test";
-import {InventoryPage} from "../../../pages/InventoryPage";
-import {LoginPage} from "../../../pages/LoginPage";
+import {InventoryPage} from "../../../pages/inventoryPage";
+import {LoginPage} from "../../../pages/loginPage";
 
 export const loginPageFixture = test.extend<{ loginPage: LoginPage, inventoryPage: InventoryPage }>({
     inventoryPage: async ({page: Page}, use) => {

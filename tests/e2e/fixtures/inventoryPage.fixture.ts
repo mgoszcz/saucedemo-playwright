@@ -1,7 +1,7 @@
 import {baseTestFixture as test} from "./baseTest.fixture";
-import {InventoryPage} from "../../../pages/InventoryPage";
+import {InventoryPage} from "../../../pages/inventoryPage";
 import {ShoppingCartPage} from "../../../pages/shoppingCartPage";
-import {ProductPage} from "../../../pages/ProductPage";
+import {ProductPage} from "../../../pages/productPage";
 
 export const inventoryPageFixture = test.extend<{
     inventoryPage: InventoryPage, shoppingCartPage: ShoppingCartPage, productPage: ProductPage }>({

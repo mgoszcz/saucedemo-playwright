@@ -1,5 +1,5 @@
 import { Page, Locator } from '@playwright/test';
-import {InventoryList} from "./inventoryPageComponents/InventoryList";
+import {InventoryList} from "./inventoryPageComponents/inventoryList";
 import {BasePage} from "./basePage";
 
 const selectors = {

@@ -1,5 +1,5 @@
 import {test} from "@playwright/test";
-import {LoginPage} from "../../../pages/LoginPage";
+import {LoginPage} from "../../../pages/loginPage";
 
 
 export const baseTestFixture = test.extend<{ loginPage: LoginPage }>({

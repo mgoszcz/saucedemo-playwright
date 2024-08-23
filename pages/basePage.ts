@@ -1,6 +1,6 @@
 import {Page} from "@playwright/test";
 import {TopBarPage} from "./basePageComponents/topBarPage";
-import {FooterPage} from "./basePageComponents/FooterPage";
+import {FooterPage} from "./basePageComponents/footerPage";
 import {MenuPage} from "./basePageComponents/menuPage";
 
 
