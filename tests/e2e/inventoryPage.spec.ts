@@ -3,7 +3,7 @@ import {inventoryPageFixture as test} from "./fixtures/inventoryPage.fixture";
 import {products} from "../../data/products";
 import {sorting} from "../../const/sorting";
 
-test.describe('Inventory Page', () => {
+test.describe.parallel('Inventory Page', () => {
     test('Products are displayed with proper labels, description and price', async ({inventoryPage}) => {
         const items = await inventoryPage.inventoryList.getItems();
         expect(items.length).toBeGreaterThan(0);
@@ -31,22 +31,22 @@ test.describe('Inventory Page', () => {
         expect(await item.addToCartButton.textContent()).toBe('Add to cart');
     });
 
-    test('add to cart button adds product to cart', async ({inventoryPage, topBarPage, shoppingCartPage}) => {
+    test('add to cart button adds product to cart', async ({inventoryPage, shoppingCartPage}) => {
         const item = await inventoryPage.inventoryList.getItemByName(products.backpack.name);
         await item.addToCartButton.click();
-        await topBarPage.shoppingCartButton.click();
-        const cartItems = await shoppingCartPage.shoppingCartList.getItems();
+        await inventoryPage.topBar.shoppingCartButton.click();
+        const cartItems =  await shoppingCartPage.shoppingCartList.getItems();
         expect(cartItems.length).toBe(1);
         expect(await cartItems[0].label.textContent()).toBe(products.backpack.name);
     });
 
-    test('add to cart and remove from cart is reflected in the cart badge', async ({inventoryPage, topBarPage}) => {
-        await expect(topBarPage.shoppingCardBadge).toBeHidden();
+    test('add to cart and remove from cart is reflected in the cart badge', async ({inventoryPage}) => {
+        await expect(inventoryPage.topBar.shoppingCardBadge).toBeHidden();
         const items = await inventoryPage.inventoryList.getItems();
         let number = 1
         for (const item of items) {
             await item.addToCartButton.click();
-            expect(await topBarPage.shoppingCardBadge.textContent()).toBe((number).toString());
+            expect(await inventoryPage.topBar.shoppingCardBadge.textContent()).toBe((number).toString());
             number++;
         }
         number = 6
@@ -54,9 +54,9 @@ test.describe('Inventory Page', () => {
             await item.addToCartButton.click();
             number--;
             if (number === 0) {
-                await expect(topBarPage.shoppingCardBadge).toBeHidden();
+                await expect(inventoryPage.topBar.shoppingCardBadge).toBeHidden();
             } else {
-                expect(await topBarPage.shoppingCardBadge.textContent()).toBe(number.toString());
+                expect(await inventoryPage.topBar.shoppingCardBadge.textContent()).toBe(number.toString());
             }
         }
     });
