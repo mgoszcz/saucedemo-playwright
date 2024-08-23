@@ -1,5 +1,5 @@
 import {Locator} from "@playwright/test";
-import {InventoryCard} from "./InventoryCard";
+import {InventoryCard} from "./inventoryCard";
 
 const selectors = {
     list: 'div.inventory_list'
