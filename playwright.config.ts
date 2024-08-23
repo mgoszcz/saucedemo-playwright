@@ -16,15 +16,23 @@ const config: PlaywrightTestConfig = {
     {
       name: 'Chromium',
       use: { browserName: 'chromium' },
+      grepInvert: /@visual/,
     },
     {
       name: 'Firefox',
       use: { browserName: 'firefox' },
+      grepInvert: /@visual/,
     },
     {
       name: 'Webkit',
       use: { browserName: 'webkit' },
+      grepInvert: /@visual/,
     },
+    {
+      name: 'visual',
+      use: {browserName: 'chromium', headless: false},
+      grep: /@visual/,
+    }
   ],
 }
 
