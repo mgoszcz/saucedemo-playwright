@@ -13,10 +13,17 @@ test.describe.parallel('Product Page', () => {
         expect(await productPage.productPrice.textContent()).toStrictEqual(`\$${products.backpack.price}`);
     });
 
-    test('product image should be displayed @visual', async ({productPage}) => {
-        await productPage.page.waitForLoadState('networkidle')
-        await expect(productPage.image).toBeVisible();
-        expect(await productPage.image.screenshot()).toMatchSnapshot('sauce-backpack.png')
+    test('product image should be displayed @visual', async ({inventoryPage, productPage}) => {
+        await productPage.backToProductsButton.click();
+        for (const product of Object.values(products)) {
+            await inventoryPage.inventoryContainer.isVisible();
+            const item = await inventoryPage.inventoryList.getItemByName(product.name);
+            await item.label.click();
+            await expect(productPage.image).toBeVisible();
+            await productPage.page.waitForLoadState('networkidle')
+            expect(await productPage.image.screenshot()).toMatchSnapshot(`${product.name}.png`)
+            await productPage.backToProductsButton.click();
+        }
     });
 
     test('add to cart button exists and changes label when adding or removing product', async ({productPage}) => {
