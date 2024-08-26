@@ -1,5 +1,5 @@
 import {Page} from "@playwright/test";
-import {CartList} from "./shoppingCardPageComponents/cartList";
+import {CartList} from "./shoppingCartPageComponents/cartList";
 import {BasePage} from "./basePage";
 
 const selectors = {
