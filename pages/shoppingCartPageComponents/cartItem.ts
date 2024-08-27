@@ -6,7 +6,7 @@ const selectors = {
     label: 'div.inventory_item_name',
     description: 'div.inventory_item_desc',
     price: 'div.inventory_item_price',
-    removeButton: 'div.cart_button',
+    removeButton: 'button.cart_button',
 }
 
 export class CartItem {

@@ -22,11 +22,11 @@ export const products = {
     "tShirtRed": {
         "name": "Test.allTheThings() T-Shirt (Red)",
         "price": 15.99,
-        "description": "This classic Sauce Labs t-shirt is perfect to wear when you want to look stylish and show off your love for Sauce Labs."
+        "description": "This classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton."
     },
     "onesie": {
         "name": "Sauce Labs Onesie",
         "price": 7.99,
-        "description": "Rib snap infant onesie for the junior automation engineer in development. Reinforced three-snap closure on binding and lap shoulders for easy removal."
+        "description": "Rib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel."
     }
 };

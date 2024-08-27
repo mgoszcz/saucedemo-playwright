@@ -5,18 +5,19 @@ import {ProductPage} from "../../../pages/productPage";
 
 export const inventoryPageFixture = test.extend<{
     inventoryPage: InventoryPage, shoppingCartPage: ShoppingCartPage, productPage: ProductPage }>({
-    inventoryPage: async ({page: Page, loginPage: LoginPage}, use) => {
-        const inventoryPage = new InventoryPage(Page);
+    inventoryPage: async ({page, loginPage}, use) => {
+        await loginPage.loginUser('standard_user', 'secret_sauce')
+        const inventoryPage = new InventoryPage(page);
         await use(inventoryPage)
     },
 
-    shoppingCartPage: async ({page: Page}, use) => {
-        const shoppingCartPage = new ShoppingCartPage(Page);
+    shoppingCartPage: async ({page}, use) => {
+        const shoppingCartPage = new ShoppingCartPage(page);
         await use(shoppingCartPage)
     },
 
-    productPage: async ({page: Page}, use) => {
-        const productPage = new ProductPage(Page);
+    productPage: async ({page}, use) => {
+        const productPage = new ProductPage(page);
         await use(productPage)
     }
 })

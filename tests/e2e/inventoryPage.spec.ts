@@ -6,12 +6,13 @@ import {sorting} from "../../const/sorting";
 test.describe.parallel('Inventory Page', () => {
     test('Products are displayed with proper labels, description and price', async ({inventoryPage}) => {
         const items = await inventoryPage.inventoryList.getItems();
-        expect(items.length).toBeGreaterThan(0);
-        Object.values(products).forEach((value) => {
-            expect(items.some(async (item) => await item.label.textContent() === value.name)).toBeTruthy();
-            expect(items.some(async (item) => await item.description.textContent() === value.description)).toBeTruthy();
-            expect(items.some(async (item) => await item.price.textContent() === `\$${value.price}`)).toBeTruthy();
-        });
+        expect(items.length).toBe(6);
+        for (const product of Object.values(products)) {
+            const item = await inventoryPage.inventoryList.getItemByName(product.name);
+            expect(await item.label.textContent()).toBe(product.name);
+            expect(await item.description.textContent()).toBe(product.description);
+            expect(await item.price.textContent()).toBe(`\$${product.price}`);
+        }
     });
 
     test('add to cart button is displayed for each product', async ({inventoryPage}) => {

@@ -1,16 +1,9 @@
-import {test} from "@playwright/test";
+import {baseTestFixture as test} from "./baseTest.fixture";
 import {InventoryPage} from "../../../pages/inventoryPage";
-import {LoginPage} from "../../../pages/loginPage";
 
-export const loginPageFixture = test.extend<{ loginPage: LoginPage, inventoryPage: InventoryPage }>({
-    inventoryPage: async ({page: Page}, use) => {
-        const inventoryPage = new InventoryPage(Page);
+export const loginPageFixture = test.extend<{ inventoryPage: InventoryPage }>({
+    inventoryPage: async ({page}, use) => {
+        const inventoryPage = new InventoryPage(page);
         await use(inventoryPage)
     },
-
-    loginPage: async ({page: Page}, use) => {
-        const loginPage = new LoginPage(Page);
-        await loginPage.open();
-        await use(loginPage)
-    }
 })
