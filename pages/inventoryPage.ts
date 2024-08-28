@@ -18,4 +18,9 @@ export class InventoryPage extends BasePage{
         this.inventoryList = new InventoryList(this.inventoryContainer);
         this.sortingDropdown = page.locator(selectors.sortingDropdown);
     }
+
+    async addProductToCart(productName: string) {
+        const item = await this.inventoryList.getItemByName(productName);
+        await item.addToCartButton.click();
+    }
 }

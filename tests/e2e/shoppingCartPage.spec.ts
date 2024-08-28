@@ -24,9 +24,9 @@ test.describe.parallel('Shopping Cart Page', () => {
 
     test.describe('Cart with 3 items', () => {
         test.beforeEach(async ({inventoryPage}) => {
-            await inventoryPage.inventoryList.getItemByName(products.backpack.name).then(async (item) => item.addToCartButton.click());
-            await inventoryPage.inventoryList.getItemByName(products.bikeLight.name).then(async (item) => item.addToCartButton.click());
-            await inventoryPage.inventoryList.getItemByName(products.boltTShirt.name).then(async (item) => item.addToCartButton.click());
+            await inventoryPage.addProductToCart(products.backpack.name);
+            await inventoryPage.addProductToCart(products.bikeLight.name);
+            await inventoryPage.addProductToCart(products.boltTShirt.name);
             await inventoryPage.topBar.shoppingCartButton.click();
         });
 
@@ -121,9 +121,9 @@ test.describe.parallel('Shopping Cart Page', () => {
           await expect(inventoryPage.inventoryContainer).toBeVisible();
        });
 
-         test('checkout button should redirect to checkout page', async ({shoppingCartPage, checkoutPage}) => {
+         test('checkout button should redirect to checkout page', async ({shoppingCartPage, checkoutUserDataPage}) => {
              await shoppingCartPage.checkoutButton.click();
-             await expect(checkoutPage.firstNameInput).toBeVisible();
+             await expect(checkoutUserDataPage.firstNameInput).toBeVisible();
          });
     });
 });
