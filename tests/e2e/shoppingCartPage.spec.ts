@@ -101,7 +101,7 @@ test.describe.parallel('Shopping Cart Page', () => {
             }
         });
 
-        test('user can access product page when clicking on product label label', async ({shoppingCartPage, productPage, page}) => {
+        test('user can access product page when clicking on product label', async ({shoppingCartPage, productPage, page}) => {
             for (const product of Object.values(products)) {
                 await shoppingCartPage.shoppingCartList.getItemByName(product.name).then(async (item) => await item.label.click());
                 expect( await productPage.productLabel.textContent()).toBe(product.name);
