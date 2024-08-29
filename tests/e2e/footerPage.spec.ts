@@ -14,7 +14,7 @@ const testVisibility = async (pageObject: BasePage) => {
     )
 }
 
-test.describe.parallel.only('Footer Page', () => {
+test.describe.parallel('Footer Page', () => {
     test(
         'footer, copyrights and social buttons should be visible on each page',
         async ({inventoryPage, shoppingCartPage, checkoutUserDataPage, checkoutCompletePage, checkoutOverviewPage}) => {
