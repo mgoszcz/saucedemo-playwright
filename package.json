@@ -8,7 +8,7 @@
     "tests:firefox": "playwright test --config=playwright.config.ts --project=Firefox",
     "tests:webkit": "playwright test --config=playwright.config.ts --project=Webkit",
     "tests:visual": "playwright test --config=playwright.config.ts --project=visual",
-    "tests": "playwright test --config=playwright.config.ts"
+    "tests": "playwright test --config=playwright.config.ts --project=Chromium --project=Firefox --project=Webkit --reporter=list"
   },
   "keywords": [],
   "author": "",
