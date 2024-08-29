@@ -1,4 +1,4 @@
-import {checkoutPageFixture as test} from "./fixtures/checkoutPageFixture";
+import {allPagesFixture as test} from "./fixtures/allPagesFixture";
 import {expect} from "@playwright/test";
 
 test.describe.parallel('Checkout page - user data', () => {

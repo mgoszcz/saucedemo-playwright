@@ -3,7 +3,7 @@ import {CheckoutCompletePage} from "../../../pages/checkoutCompletePage";
 import {shoppingCartPageFixture} from "./shoppingCartPage.fixture";
 
 
-export const checkoutPageFixture = shoppingCartPageFixture.extend<{checkoutOverviewPage: CheckoutOverviewPage, checkoutCompletePage: CheckoutCompletePage}>({
+export const allPagesFixture = shoppingCartPageFixture.extend<{checkoutOverviewPage: CheckoutOverviewPage, checkoutCompletePage: CheckoutCompletePage}>({
     checkoutOverviewPage: async ({page}, use) => {
         const checkoutPage = new CheckoutOverviewPage(page);
         await use(checkoutPage);
