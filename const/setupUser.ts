@@ -1,8 +1,9 @@
 import {chromium} from "@playwright/test";
-import {urls} from "./const/urls";
-import {LoginPage} from "./pages/loginPage";
+import {LoginPage} from "../pages/loginPage";
+import {urls} from "./urls";
 
-async function globalSetup() {
+
+export const setupUser = async () => {
     const browser = await chromium.launch();
     const context = await browser.newContext();
     const page = await context.newPage();
@@ -17,5 +18,3 @@ async function globalSetup() {
 
     await browser.close();
 }
-
-export default globalSetup;
