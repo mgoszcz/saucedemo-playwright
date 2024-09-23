@@ -12,6 +12,7 @@ const config: PlaywrightTestConfig = {
     video: 'retain-on-failure',
     screenshot: 'only-on-failure',
   },
+  globalSetup: require.resolve('./globalSetup'),
   projects: [
     {
       name: 'Chromium',
